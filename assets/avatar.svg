@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="avatarBgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF9EB"/>
+      <stop offset="70%" stop-color="#F7EED8"/>
+      <stop offset="100%" stop-color="#EFE2C5"/>
+    </radialGradient>
+    
+    <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5D0D18"/>
+      <stop offset="100%" stop-color="#420810"/>
+    </linearGradient>
+
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D99B77"/>
+      <stop offset="100%" stop-color="#C58562"/>
+    </linearGradient>
+
+    <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D2C2B"/>
+      <stop offset="100%" stop-color="#1C1B1A"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#5D0D18" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Background Circle -->
+  <circle cx="250" cy="250" r="240" fill="url(#avatarBgGrad)" />
+
+  <!-- Subtle Inner Ring Accent -->
+  <circle cx="250" cy="250" r="230" fill="none" stroke="#9FB2AC" stroke-width="2" stroke-dasharray="6 8" opacity="0.4" />
+
+  <!-- Developer Silhouette Figure -->
+  <g filter="url(#softShadow)">
+    <!-- Shoulders & Coat / Top -->
+    <path d="M120 420 C120 330, 175 305, 250 305 C325 305, 380 330, 380 420 Z" fill="url(#hoodieGrad)" stroke="#420810" stroke-width="2"/>
+
+    <!-- Inner Collar -->
+    <path d="M215 310 L250 365 L285 310" fill="none" stroke="#9FB2AC" stroke-width="2.5" opacity="0.8"/>
+    
+    <!-- Neck -->
+    <path d="M222 250 L222 315 L278 315 L278 250 Z" fill="url(#skinGrad)"/>
+
+    <!-- Head / Hijab & Face Contour -->
+    <!-- Hijab drape -->
+    <path d="M175 200 C175 110, 325 110, 325 200 C325 275, 285 295, 250 295 C215 295, 175 275, 175 200 Z" fill="url(#hijabGrad)"/>
+    
+    <!-- Face Oval -->
+    <path d="M205 185 C205 140, 295 140, 295 185 C295 240, 275 260, 250 260 C225 260, 205 240, 205 185 Z" fill="url(#skinGrad)"/>
+
+    <!-- Minimal Modern Facial Accents -->
+    <!-- Eyebrows -->
+    <path d="M220 170 Q232 165 242 168" stroke="#2B1810" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M258 168 Q268 165 280 170" stroke="#2B1810" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Eyes (Sleek tech look) -->
+    <ellipse cx="231" cy="182" rx="5" ry="3.5" fill="#2B1810"/>
+    <ellipse cx="269" cy="182" rx="5" ry="3.5" fill="#2B1810"/>
+    <circle cx="232.5" cy="180.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="270.5" cy="180.5" r="1.5" fill="#FFFFFF"/>
+
+    <!-- Glasses Frame (Smart Developer look) -->
+    <rect x="216" y="172" width="28" height="18" rx="6" fill="none" stroke="#5D0D18" stroke-width="2"/>
+    <rect x="256" y="172" width="28" height="18" rx="6" fill="none" stroke="#5D0D18" stroke-width="2"/>
+    <line x1="244" y1="180" x2="256" y2="180" stroke="#5D0D18" stroke-width="2"/>
+
+    <!-- Nose -->
+    <path d="M250 185 L247 202 L253 202" fill="none" stroke="#B87552" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Smile -->
+    <path d="M238 220 Q250 230 262 220" fill="none" stroke="#8A3628" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Modern Badge Pin on Collar -->
+    <circle cx="250" cy="365" r="10" fill="#9FB2AC" stroke="#FFF9EB" stroke-width="1.5"/>
+    <circle cx="250" cy="365" r="4" fill="#5D0D18"/>
+  </g>
+</svg>
