@@ -434,6 +434,10 @@
                 <button class="btn btn-bloodstone open-jobsoo-modal" id="view-project-btn">
                   <i class="fa-solid fa-eye"></i> View Project Details
                 </button>
+                <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline-bloodstone" title="Open Jobsoo - AI Job Recommendation Portal">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal (Jobsoo)
+                </a>
                 <a href="#contact" class="btn btn-outline-bloodstone">
                   <i class="fa-regular fa-paper-plane"></i> Discuss This Project
                 </a>
@@ -801,22 +805,25 @@
 
           <!-- Right Clean Contact Form -->
           <div class="clean-card contact-form-card reveal-fade">
-            <form class="contact-form" id="contact-form" novalidate>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqpapdzd" method="POST" novalidate>
+              <!-- Formspree Subject & Config -->
+              <input type="hidden" name="_subject" value="New Portfolio Inquiry from zehra.dev">
+              
               <div class="form-group">
                 <label for="form-name" class="form-label">Your Name *</label>
-                <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Johnson" required
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Alex Johnson" required
                   autocomplete="name">
               </div>
 
               <div class="form-group">
                 <label for="form-email" class="form-label">Your Email *</label>
-                <input type="email" id="form-email" class="form-input" placeholder="e.g. alex@example.com" required
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="e.g. alex@example.com" required
                   autocomplete="email">
               </div>
 
               <div class="form-group">
                 <label for="form-message" class="form-label">Your Message *</label>
-                <textarea id="form-message" class="form-textarea"
+                <textarea id="form-message" name="message" class="form-textarea"
                   placeholder="Write about your project idea, collaboration, or opportunity..." required></textarea>
               </div>
 
@@ -889,9 +896,20 @@
         Jobsoo — <span class="highlight-bloodstone">AI Job Recommendation Portal</span>
       </h2>
 
-      <div
-        style="margin-bottom: 20px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(93, 13, 24, 0.15);">
-        <img src="assets/jobsoo-preview.svg" alt="Jobsoo AI System Architecture" style="width: 100%; height: auto;">
+      <!-- Live Application Link Banner -->
+      <div class="modal-live-banner">
+        <div class="modal-live-meta">
+          <span class="modal-live-dot"></span>
+          <div>
+            <div class="modal-live-tag">Live Streamlit Application</div>
+            <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="modal-live-title">
+              Jobsoo - AI Job Recommendation Portal <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.85rem;"></i>
+            </a>
+          </div>
+        </div>
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="btn btn-bloodstone" style="padding: 8px 18px; font-size: 0.88rem;">
+          <i class="fa-solid fa-play"></i> Open Live App
+        </a>
       </div>
 
       <p style="color: var(--text-body); margin-bottom: 20px; line-height: 1.7;">
@@ -915,8 +933,12 @@
       </ul>
 
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="https://github.com/zehrasidhic-del" target="_blank" rel="noopener noreferrer"
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer"
           class="btn btn-bloodstone">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Jobsoo (Live Portal)
+        </a>
+        <a href="https://github.com/zehrasidhic-del" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline-bloodstone">
           <i class="fa-brands fa-github"></i> View Code Repository
         </a>
         <a href="mailto:zehrasidhic@gmail.com?subject=Inquiry%20about%20Jobsoo%20AI%20Project"

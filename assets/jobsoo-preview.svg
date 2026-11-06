@@ -1,162 +1,175 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%">
   <defs>
-    <!-- Gradients -->
+    <!-- Background Gradients tailored to Vanilla Custard & Bloodstone Theme -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#24060b"/>
-      <stop offset="100%" stop-color="#120306"/>
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#F7EED8"/>
     </linearGradient>
 
     <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="rgba(75, 12, 22, 0.7)"/>
-      <stop offset="100%" stop-color="rgba(35, 6, 11, 0.85)"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF4E5"/>
     </linearGradient>
 
     <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8f1929"/>
-      <stop offset="50%" stop-color="#5D0D18"/>
-      <stop offset="100%" stop-color="#9FB2AC"/>
+      <stop offset="0%" stop-color="#5D0D18"/>
+      <stop offset="100%" stop-color="#7A1422"/>
     </linearGradient>
 
     <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4a0d16"/>
-      <stop offset="100%" stop-color="#2a060d"/>
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#F5EBCE"/>
     </linearGradient>
 
-    <filter id="glowSubtle" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <!-- Soft Drop Shadow -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#5D0D18" flood-opacity="0.07"/>
+    </filter>
+
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#5D0D18" flood-opacity="0.05"/>
     </filter>
   </defs>
 
   <!-- Base Window Frame -->
-  <rect x="0" y="0" width="900" height="520" rx="16" fill="url(#bgGrad)" stroke="rgba(159, 178, 172, 0.3)" stroke-width="1.5"/>
+  <rect x="0" y="0" width="900" height="520" rx="16" fill="url(#bgGrad)" stroke="rgba(93, 13, 24, 0.15)" stroke-width="1.5"/>
 
   <!-- Top Bar / Window Header -->
-  <path d="M 0 16 Q 0 0 16 0 L 884 0 Q 900 0 900 16 L 900 44 L 0 44 Z" fill="#1b0408" />
-  <circle cx="28" cy="22" r="5" fill="#8f1929" opacity="0.9"/>
-  <circle cx="44" cy="22" r="5" fill="#c2a677" opacity="0.9"/>
-  <circle cx="60" cy="22" r="5" fill="#9FB2AC" opacity="0.9"/>
+  <path d="M 0 16 Q 0 0 16 0 L 884 0 Q 900 0 900 16 L 900 44 L 0 44 Z" fill="#F0E3C8" />
+  <line x1="0" y1="44" x2="900" y2="44" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1"/>
   
-  <rect x="180" y="10" width="540" height="24" rx="6" fill="#2d080e" stroke="rgba(159,178,172,0.15)" stroke-width="1"/>
-  <text x="450" y="26" font-family="'JetBrains Mono', monospace" font-size="11" fill="#dcd6c7" text-anchor="middle">jobsoo-ai-engine.streamlit.app/dashboard • Groq Kimi K2 Powered</text>
+  <!-- Window Controls -->
+  <circle cx="28" cy="22" r="5.5" fill="#5D0D18" opacity="0.85"/>
+  <circle cx="46" cy="22" r="5.5" fill="#D99B77" opacity="0.85"/>
+  <circle cx="64" cy="22" r="5.5" fill="#9FB2AC" opacity="0.95"/>
+  
+  <!-- Address / URL Bar -->
+  <rect x="180" y="9" width="540" height="26" rx="6" fill="#FFFFFF" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1"/>
+  <circle cx="196" cy="22" r="3.5" fill="#22C55E"/>
+  <text x="450" y="26" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500" fill="#5D0D18" text-anchor="middle">http://localhost:8501 • Jobsoo - AI Job Recommendation Portal</text>
 
-  <!-- App Header -->
+  <!-- App Header / Toolbar -->
   <g transform="translate(30, 60)">
-    <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#FFF9EB" letter-spacing="-0.5">Jobsoo<tspan fill="#9FB2AC">.AI</tspan></text>
-    <rect x="110" y="8" width="115" height="20" rx="10" fill="rgba(93, 13, 24, 0.5)" stroke="#9FB2AC" stroke-width="1"/>
-    <text x="167" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FFF9EB" text-anchor="middle">STREAMLIT CORE</text>
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="800" fill="#1C1B1A" letter-spacing="-0.5">Jobsoo<tspan fill="#5D0D18">.AI</tspan></text>
+    
+    <!-- Streamlit Core Badge -->
+    <rect x="120" y="7" width="124" height="22" rx="11" fill="#D9E6E2" stroke="#9FB2AC" stroke-width="1"/>
+    <text x="182" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#5D0D18" text-anchor="middle">STREAMLIT CORE</text>
 
     <!-- Search/Status Pill -->
-    <rect x="620" y="6" width="220" height="26" rx="13" fill="#2d080e" stroke="rgba(159, 178, 172, 0.4)" stroke-width="1"/>
-    <circle cx="636" cy="19" r="4" fill="#9FB2AC"/>
-    <text x="648" y="23" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFF9EB">AI Neural Matching Active</text>
+    <rect x="610" y="5" width="230" height="26" rx="13" fill="#FFFFFF" stroke="#9FB2AC" stroke-width="1" filter="url(#cardShadow)"/>
+    <circle cx="628" cy="18" r="4" fill="#22C55E"/>
+    <text x="640" y="22" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1C1B1A">AI Neural Matching Active</text>
   </g>
 
   <!-- Left Column: Resume Skill Extractor Card -->
   <g transform="translate(30, 110)">
-    <rect x="0" y="0" width="380" height="375" rx="12" fill="url(#panelGrad)" stroke="rgba(159,178,172,0.18)" stroke-width="1"/>
+    <rect x="0" y="0" width="380" height="375" rx="14" fill="url(#panelGrad)" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1" filter="url(#softShadow)"/>
     
     <!-- Card Header -->
-    <text x="20" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#FFF9EB">AI Resume Skill Extraction</text>
-    <text x="20" y="48" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9FB2AC">groq-kimi-k2 // structured_json_parser</text>
+    <text x="22" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" fill="#1C1B1A">AI Resume Skill Extraction</text>
+    <text x="22" y="48" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#6C847E">groq-kimi-k2 // structured_json_parser</text>
     
     <!-- Uploaded Profile summary -->
-    <rect x="20" y="62" width="340" height="60" rx="8" fill="#220509" stroke="rgba(159, 178, 172, 0.25)" stroke-width="1"/>
-    <circle cx="48" cy="92" r="16" fill="#3d0a11" stroke="#9FB2AC" stroke-width="1"/>
-    <text x="48" y="96" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FFF9EB" text-anchor="middle">FZ</text>
-    <text x="76" y="86" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF9EB">Fathimath Zehra CS</text>
-    <text x="76" y="103" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#9FB2AC">Target: AI Developer / Python Engineer</text>
+    <rect x="20" y="62" width="340" height="62" rx="10" fill="#FFF9EB" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1"/>
+    <circle cx="50" cy="93" r="18" fill="#5D0D18"/>
+    <text x="50" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#FFF9EB" text-anchor="middle">FZ</text>
+    <text x="80" y="86" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="800" fill="#1C1B1A">Fathimath Zehra CS</text>
+    <text x="80" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#5D0D18">Target: AI Developer / Python Engineer</text>
 
     <!-- Extracted Skill Vectors -->
-    <text x="20" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#dcd6c7">EXTRACTED CORE CAPABILITIES</text>
+    <text x="22" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#5D0D18" letter-spacing="0.5">EXTRACTED CORE CAPABILITIES</text>
     
     <!-- Skill Badges -->
     <g transform="translate(20, 155)">
       <!-- Skill 1 -->
-      <rect x="0" y="0" width="100" height="26" rx="6" fill="#3a0910" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="50" y="17" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFF9EB" text-anchor="middle">Python 3.11</text>
+      <rect x="0" y="0" width="102" height="26" rx="13" fill="#D9E6E2" stroke="#9FB2AC" stroke-width="1"/>
+      <text x="51" y="17" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#5D0D18" text-anchor="middle">Python 3.11</text>
       
       <!-- Skill 2 -->
-      <rect x="108" y="0" width="112" height="26" rx="6" fill="#1a2e28" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="164" y="17" font-family="'JetBrains Mono', monospace" font-size="10" fill="#c2d1cc" text-anchor="middle">Data Analysis</text>
+      <rect x="110" y="0" width="112" height="26" rx="13" fill="#FFF9EB" stroke="rgba(93, 13, 24, 0.2)" stroke-width="1"/>
+      <text x="166" y="17" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1C1B1A" text-anchor="middle">Data Analysis</text>
 
       <!-- Skill 3 -->
-      <rect x="228" y="0" width="112" height="26" rx="6" fill="#3a0910" stroke="#8f1929" stroke-width="1"/>
-      <text x="284" y="17" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFF9EB" text-anchor="middle">Generative AI</text>
+      <rect x="230" y="0" width="110" height="26" rx="13" fill="#D9E6E2" stroke="#9FB2AC" stroke-width="1"/>
+      <text x="285" y="17" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#5D0D18" text-anchor="middle">Generative AI</text>
 
       <!-- Skill 4 -->
-      <rect x="0" y="34" width="115" height="26" rx="6" fill="#1a2e28" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="57" y="51" font-family="'JetBrains Mono', monospace" font-size="10" fill="#c2d1cc" text-anchor="middle">Problem Solving</text>
+      <rect x="0" y="34" width="118" height="26" rx="13" fill="#FFF9EB" stroke="rgba(93, 13, 24, 0.2)" stroke-width="1"/>
+      <text x="59" y="51" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#1C1B1A" text-anchor="middle">Problem Solving</text>
 
       <!-- Skill 5 -->
-      <rect x="123" y="34" width="125" height="26" rx="6" fill="#3a0910" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="185" y="51" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFF9EB" text-anchor="middle">Control Flow &amp; Alg</text>
+      <rect x="126" y="34" width="124" height="26" rx="13" fill="#D9E6E2" stroke="#9FB2AC" stroke-width="1"/>
+      <text x="188" y="51" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#5D0D18" text-anchor="middle">Control Flow &amp; Alg</text>
 
       <!-- Skill 6 -->
-      <rect x="256" y="34" width="84" height="26" rx="6" fill="#220509" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="298" y="51" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9FB2AC" text-anchor="middle">Streamlit</text>
+      <rect x="258" y="34" width="82" height="26" rx="13" fill="#EBF3F0" stroke="#9FB2AC" stroke-width="1"/>
+      <text x="299" y="51" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#6C847E" text-anchor="middle">Streamlit</text>
     </g>
 
     <!-- AI Reasoning Snippet -->
-    <rect x="20" y="240" width="340" height="115" rx="8" fill="#170306" stroke="rgba(159, 178, 172, 0.25)" stroke-width="1"/>
-    <text x="32" y="260" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9FB2AC">&gt; Kimi-K2 Reasoning Graph:</text>
-    <text x="32" y="278" font-family="'JetBrains Mono', monospace" font-size="9" fill="#dcd6c7">"Extracted high algorithmic aptitude in</text>
-    <text x="32" y="293" font-family="'JetBrains Mono', monospace" font-size="9" fill="#dcd6c7">Python control flow &amp; data parsing.</text>
-    <text x="32" y="308" font-family="'JetBrains Mono', monospace" font-size="9" fill="#dcd6c7">Matches 96% job criteria with AI Intern</text>
-    <text x="32" y="323" font-family="'JetBrains Mono', monospace" font-size="9" fill="#dcd6c7">and Junior Python Developer roles."</text>
-    <circle cx="335" cy="335" r="4" fill="#9FB2AC" filter="url(#glowSubtle)"/>
+    <rect x="20" y="238" width="340" height="118" rx="10" fill="#FFF9EB" stroke="rgba(93, 13, 24, 0.15)" stroke-width="1"/>
+    <text x="32" y="258" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700" fill="#5D0D18">&gt; Kimi-K2 Reasoning Graph:</text>
+    <text x="32" y="277" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#4A4846">"Extracted high algorithmic aptitude in</text>
+    <text x="32" y="293" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#4A4846">Python control flow &amp; data parsing.</text>
+    <text x="32" y="309" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#4A4846">Matches 96% job criteria with AI Intern</text>
+    <text x="32" y="325" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#4A4846">and Junior Python Developer roles."</text>
+    <circle cx="335" cy="336" r="4.5" fill="#22C55E"/>
   </g>
 
   <!-- Right Column: Candidate Matching & Job Recommendations -->
   <g transform="translate(430, 110)">
-    <rect x="0" y="0" width="440" height="375" rx="12" fill="url(#panelGrad)" stroke="rgba(159,178,172,0.18)" stroke-width="1"/>
+    <rect x="0" y="0" width="440" height="375" rx="14" fill="url(#panelGrad)" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1" filter="url(#softShadow)"/>
 
-    <text x="24" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#FFF9EB">Top AI Matched Opportunity</text>
-    <text x="24" y="48" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9FB2AC">Semantic Vector Similarity Engine</text>
+    <text x="24" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" fill="#1C1B1A">Top AI Matched Opportunity</text>
+    <text x="24" y="48" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#6C847E">Semantic Vector Similarity Engine</text>
 
     <!-- Featured Job Recommendation Card -->
     <g transform="translate(24, 62)">
-      <rect x="0" y="0" width="392" height="150" rx="10" fill="url(#cardGrad)" stroke="#8f1929" stroke-width="1.5" filter="url(#glowSubtle)"/>
+      <rect x="0" y="0" width="392" height="150" rx="12" fill="url(#cardGrad)" stroke="#5D0D18" stroke-width="1.5" filter="url(#cardShadow)"/>
       
-      <text x="20" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800" fill="#FFF9EB">AI Developer Intern</text>
-      <text x="20" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#9FB2AC">Excape.AI • Artificial Intelligence &amp; LLM</text>
+      <text x="20" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800" fill="#1C1B1A">AI Developer Intern</text>
+      <text x="20" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#5D0D18">Excape.AI • Artificial Intelligence &amp; LLM</text>
       
       <!-- Match Radial / Gauge -->
-      <circle cx="340" cy="40" r="24" fill="#1b0408" stroke="#9FB2AC" stroke-width="3.5"/>
-      <text x="340" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#FFF9EB" text-anchor="middle">96%</text>
-      <text x="340" y="74" font-family="'JetBrains Mono', monospace" font-size="8" fill="#9FB2AC" text-anchor="middle">MATCH SCORE</text>
+      <circle cx="340" cy="40" r="24" fill="#FFFFFF" stroke="#22C55E" stroke-width="3.5"/>
+      <text x="340" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1C1B1A" text-anchor="middle">96%</text>
+      <text x="340" y="74" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#6C847E" text-anchor="middle">MATCH SCORE</text>
 
-      <line x1="20" y1="62" x2="280" y2="62" stroke="rgba(159,178,172,0.15)" stroke-width="1"/>
+      <line x1="20" y1="60" x2="285" y2="60" stroke="rgba(93, 13, 24, 0.1)" stroke-width="1"/>
 
       <!-- Features Checklist -->
-      <g transform="translate(20, 80)">
-        <circle cx="5" cy="5" r="3" fill="#9FB2AC"/>
-        <text x="14" y="9" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#dcd6c7">Python &amp; Algorithmic Thinking Mastery</text>
+      <g transform="translate(20, 78)">
+        <!-- Item 1 -->
+        <circle cx="5" cy="5" r="4" fill="#22C55E"/>
+        <path d="M 3.5 5 L 4.5 6.5 L 7 3.5" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+        <text x="16" y="9" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="600" fill="#33312E">Python &amp; Algorithmic Thinking Mastery</text>
 
-        <circle cx="5" cy="24" r="3" fill="#8f1929"/>
-        <text x="14" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#dcd6c7">Generative AI Prompting &amp; Data Pipeline</text>
+        <!-- Item 2 -->
+        <circle cx="5" cy="24" r="4" fill="#22C55E"/>
+        <path d="M 3.5 24 L 4.5 25.5 L 7 22.5" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+        <text x="16" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="600" fill="#33312E">Generative AI Prompting &amp; Data Pipeline</text>
 
-        <circle cx="5" cy="43" r="3" fill="#9FB2AC"/>
-        <text x="14" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#dcd6c7">Automated Resume-to-Job Dispatch</text>
+        <!-- Item 3 -->
+        <circle cx="5" cy="43" r="4" fill="#22C55E"/>
+        <path d="M 3.5 43 L 4.5 44.5 L 7 41.5" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+        <text x="16" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="600" fill="#33312E">Automated Resume-to-Job Dispatch</text>
       </g>
     </g>
 
     <!-- Secondary Match Opportunity -->
     <g transform="translate(24, 226)">
-      <rect x="0" y="0" width="392" height="68" rx="8" fill="#20050a" stroke="rgba(159,178,172,0.15)" stroke-width="1"/>
-      <text x="16" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#FFF9EB">Junior Data &amp; AI Research Associate</text>
-      <text x="16" y="42" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#9FB2AC">Intelligent Transport &amp; Analytics • 91% Match</text>
-      <rect x="300" y="20" width="76" height="26" rx="6" fill="#3d0a11" stroke="#9FB2AC" stroke-width="1"/>
-      <text x="338" y="37" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FFF9EB" text-anchor="middle">Applied</text>
+      <rect x="0" y="0" width="392" height="68" rx="10" fill="#FFF9EB" stroke="rgba(93, 13, 24, 0.12)" stroke-width="1"/>
+      <text x="16" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1C1B1A">Junior Data &amp; AI Research Associate</text>
+      <text x="16" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#6C847E">Intelligent Transport &amp; Analytics • 91% Match</text>
+      <rect x="302" y="20" width="76" height="28" rx="14" fill="#D9E6E2" stroke="#9FB2AC" stroke-width="1"/>
+      <text x="340" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#5D0D18" text-anchor="middle">Applied</text>
     </g>
 
     <!-- Streamlit Dispatch Bar -->
     <g transform="translate(24, 308)">
-      <rect x="0" y="0" width="392" height="46" rx="8" fill="url(#primaryGrad)" stroke="rgba(159,178,172,0.3)" stroke-width="1"/>
-      <text x="196" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#FFF9EB" text-anchor="middle" letter-spacing="0.5">🚀 1-CLICK AI JOB APPLICATION</text>
+      <rect x="0" y="0" width="392" height="46" rx="10" fill="url(#primaryGrad)" stroke="rgba(93, 13, 24, 0.2)" stroke-width="1" filter="url(#cardShadow)"/>
+      <text x="196" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="800" fill="#FFF9EB" text-anchor="middle" letter-spacing="0.5">🚀 1-CLICK AI JOB APPLICATION</text>
     </g>
   </g>
 </svg>

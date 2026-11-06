@@ -214,7 +214,7 @@ function initContactForm() {
 
   if (!contactForm || !statusMsg) return;
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('form-name').value.trim();
@@ -237,20 +237,62 @@ function initContactForm() {
 
     const originalBtnContent = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `Sending...`;
+    submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending Message...`;
+    statusMsg.className = 'form-status';
+    statusMsg.style.display = 'none';
 
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnContent;
-      
-      statusMsg.className = 'form-status success';
+    const formAction = contactForm.getAttribute('action');
+    const formData = new FormData(contactForm);
+
+    try {
+      // If Formspree ID is set, submit to Formspree endpoint
+      if (formAction && !formAction.includes('YOUR_FORM_ID')) {
+        const response = await fetch(formAction, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          statusMsg.className = 'form-status success';
+          statusMsg.innerHTML = `
+            <strong>Thank you, ${escapeHTML(name)}!</strong><br>
+            Your message has been sent successfully to Fathimath Zehra CS. You will receive a response at <em>${escapeHTML(email)}</em> soon.
+          `;
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          if (data && data.errors) {
+            statusMsg.className = 'form-status error';
+            statusMsg.textContent = data.errors.map(err => err.message).join(', ');
+          } else {
+            throw new Error('Form submission failed');
+          }
+        }
+      } else {
+        // Fallback simulation if Form ID has not been pasted yet
+        await new Promise(resolve => setTimeout(resolve, 800));
+        statusMsg.className = 'form-status success';
+        statusMsg.innerHTML = `
+          <strong>Thank you, ${escapeHTML(name)}!</strong><br>
+          Your message has been received. You can also reach me directly at 
+          <a href="mailto:zehrasidhic@gmail.com" style="text-decoration: underline; color: var(--bloodstone); font-weight: 700;">zehrasidhic@gmail.com</a>.
+        `;
+        contactForm.reset();
+      }
+    } catch (error) {
+      statusMsg.className = 'form-status error';
       statusMsg.innerHTML = `
-        <strong>Thank you, ${escapeHTML(name)}!</strong><br>
-        Your message has been captured. You can also reach me directly at 
+        Oops! Something went wrong while sending your message.<br>
+        Please send an email directly to 
         <a href="mailto:zehrasidhic@gmail.com" style="text-decoration: underline; color: var(--bloodstone); font-weight: 700;">zehrasidhic@gmail.com</a>.
       `;
-      contactForm.reset();
-    }, 1000);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnContent;
+    }
   });
 }
 

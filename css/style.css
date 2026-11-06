@@ -201,7 +201,7 @@ img, svg {
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
   font-weight: 800;
   color: var(--text-heading);
   margin-bottom: 16px;
@@ -446,32 +446,32 @@ img, svg {
 
 /* Main Greeting & Name */
 .hero-greeting {
-  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  font-size: clamp(1.75rem, 5.5vw, 4.4rem);
   font-weight: 900;
   line-height: 1.1;
   color: var(--text-heading);
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   margin-bottom: 4px;
 }
 
 .hero-name {
-  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-size: clamp(2.1rem, 6.2vw, 4.6rem);
   font-weight: 900;
   line-height: 1.05;
   color: var(--bloodstone);
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   margin-bottom: 18px;
 }
 
 /* Typewriter Subheading */
 .hero-typewriter-wrap {
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-size: clamp(1.15rem, 3vw, 1.85rem);
   font-weight: 800;
   color: var(--bloodstone);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 36px;
 }
 
 .hero-typewriter-prefix {
@@ -1198,7 +1198,7 @@ img, svg {
 }
 
 .project-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.3rem, 3.2vw, 2.2rem);
   font-weight: 800;
   margin-bottom: 16px;
   line-height: 1.25;
@@ -1730,6 +1730,78 @@ img, svg {
   color: var(--bg-vanilla);
 }
 
+/* Modal Live Application Banner */
+.modal-live-banner {
+  background: rgba(93, 13, 24, 0.04);
+  border: 1px solid rgba(93, 13, 24, 0.16);
+  border-left: 4px solid var(--bloodstone);
+  border-radius: var(--border-radius-md);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  transition: all var(--transition-fast);
+}
+
+.modal-live-banner:hover {
+  background: rgba(93, 13, 24, 0.07);
+  border-color: rgba(93, 13, 24, 0.25);
+  box-shadow: var(--shadow-sm);
+}
+
+.modal-live-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--status-green);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  flex-shrink: 0;
+  animation: pulse-live 2s infinite ease-in-out;
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.1);
+  }
+}
+
+.modal-live-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.modal-live-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--bloodstone);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast);
+}
+
+.modal-live-title:hover {
+  color: var(--bloodstone-hover);
+}
+
 /* Toast Notification */
 .toast-notice {
   position: fixed;
@@ -1773,7 +1845,7 @@ img, svg {
 }
 
 /* --------------------------------------------------------------------------
-   16. Responsive Breakpoints
+   16. Responsive Breakpoints & Mobile Typography
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -1810,6 +1882,41 @@ img, svg {
 }
 
 @media (max-width: 768px) {
+  /* Layout & Spacing */
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  /* Section Typography */
+  .section-tag {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Header & Navigation */
+  .logo {
+    font-size: 1.3rem;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -1842,12 +1949,75 @@ img, svg {
     width: 100%;
     text-align: center;
     padding: 12px 20px;
+    font-size: 0.95rem;
   }
 
   .nav-cta {
     display: none;
   }
 
+  /* Hero Section Typography */
+  .hero-section {
+    padding-top: calc(var(--header-height) + 16px);
+    padding-bottom: 48px;
+    min-height: auto;
+  }
+
+  .hero-greeting {
+    font-size: 1.95rem;
+  }
+
+  .hero-name {
+    font-size: 2.35rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-typewriter-wrap {
+    font-size: 1.25rem;
+    min-height: 32px;
+    margin-bottom: 18px;
+  }
+
+  .hero-status-pill {
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .hero-social-row {
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  .hero-social-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+  }
+
+  .hero-stats-row {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .hero-stat-number {
+    font-size: 1.2rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.74rem;
+  }
+
+  /* Hero Visual & Badges */
   .profile-frame-wrap {
     width: 300px;
     height: 300px;
@@ -1867,26 +2037,140 @@ img, svg {
     display: none;
   }
 
-  .hero-stats-row {
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: flex-start;
+  /* Cards & General Typography */
+  .clean-card {
+    padding: 26px 20px;
+  }
+
+  .about-text-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .highlight-card {
+    padding: 20px 18px;
+  }
+
+  .highlight-info h4 {
+    font-size: 1.05rem;
+  }
+
+  .highlight-info .org-name {
+    font-size: 0.9rem;
+  }
+
+  .highlight-info p {
+    font-size: 0.84rem;
+  }
+
+  /* Education & Experience Typography */
+  .edu-card {
+    padding: 24px 18px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .edu-institution {
+    font-size: 0.95rem;
+  }
+
+  .edu-desc {
+    font-size: 0.9rem;
+  }
+
+  .exp-title-box h3 {
+    font-size: 1.15rem;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+  }
+
+  .exp-desc {
+    font-size: 0.9rem;
+  }
+
+  .pill-tag {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+
+  /* Skills Section Typography */
+  .skill-category-card {
+    padding: 26px 20px;
+  }
+
+  .skill-category-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .skill-item-card span {
+    font-size: 0.8rem;
+  }
+
+  /* Featured Project Typography */
+  .project-featured-card {
+    padding: 28px 20px;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .project-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .project-features-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .feature-item {
+    font-size: 0.88rem;
+  }
+
+  .tech-tag {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+
+  /* Journey & Medium Section */
+  .journey-pipeline {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .medium-card {
     flex-direction: column;
     text-align: center;
-    padding: 28px;
+    padding: 28px 20px;
   }
 
-  .journey-pipeline {
-    grid-template-columns: repeat(2, 1fr);
+  .medium-content h3 {
+    font-size: 1.3rem;
   }
 
-  .project-features-list {
-    grid-template-columns: 1fr;
+  .medium-content p {
+    font-size: 0.92rem;
   }
 
+  /* Contact Section */
+  .contact-form-card {
+    padding: 28px 20px;
+  }
+
+  .contact-detail-box a, .contact-detail-box span {
+    font-size: 0.94rem;
+  }
+
+  /* Footer */
   .footer-top {
     flex-direction: column;
     text-align: center;
@@ -1896,63 +2180,472 @@ img, svg {
     flex-direction: column;
     text-align: center;
   }
+
+  /* Modal */
+  .modal-card {
+    padding: 28px 20px;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Layout & Spacing */
+  .container {
+    padding: 0 16px;
+  }
+
   .section {
-    padding: 70px 0;
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    padding: 4px 12px;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  /* Hero Section Typography & Elements */
+  .hero-greeting {
+    font-size: 1.6rem;
+  }
+
+  .hero-name {
+    font-size: 1.95rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .hero-typewriter-wrap {
+    font-size: 1.05rem;
+    min-height: 28px;
+    margin-bottom: 14px;
+  }
+
+  .hero-status-pill {
+    font-size: 0.76rem;
+    padding: 5px 12px;
+    gap: 6px;
+    margin-bottom: 14px;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .hero-actions .btn {
     width: 100%;
+    padding: 11px 18px;
+    font-size: 0.88rem;
   }
 
-  .profile-frame-wrap {
-    width: 260px;
-    height: 260px;
+  .hero-social-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
   }
 
-  .hero-float-badge {
-    padding: 8px 12px;
-    gap: 8px;
+  .hero-stats-row {
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 14px;
   }
 
-  .float-badge-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 0.85rem;
+  .hero-stat-number {
+    font-size: 1.1rem;
   }
 
-  .float-badge-title {
-    font-size: 0.78rem;
-  }
-
-  .float-badge-sub {
+  .hero-stat-label {
     font-size: 0.68rem;
   }
 
+  .profile-frame-wrap {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-float-badge {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .float-badge-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .float-badge-title {
+    font-size: 0.74rem;
+  }
+
+  .float-badge-sub {
+    font-size: 0.65rem;
+  }
+
+  /* Cards & Content */
   .clean-card {
-    padding: 22px;
+    padding: 18px 14px;
+    border-radius: var(--border-radius-md);
   }
 
-  .journey-pipeline {
-    grid-template-columns: 1fr;
+  .about-text-content p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
   }
 
+  .highlight-card {
+    padding: 16px 12px;
+    gap: 12px;
+  }
+
+  .highlight-icon-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .highlight-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .highlight-info .org-name {
+    font-size: 0.85rem;
+  }
+
+  .highlight-info p {
+    font-size: 0.8rem;
+  }
+
+  /* Timeline & Education */
   .timeline-item-vertical {
-    padding-left: 60px;
+    padding-left: 48px;
+    margin-bottom: 22px;
   }
 
   .timeline-node-vertical {
-    left: 18px;
+    left: 12px;
+    top: 22px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .timeline-node-vertical::after {
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
   }
 
   .timeline-vertical::before {
-    left: 30px;
+    left: 21px;
+  }
+
+  .edu-card {
+    padding: 16px 12px;
+  }
+
+  .edu-badge {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .edu-institution {
+    font-size: 0.88rem;
+  }
+
+  .edu-desc {
+    font-size: 0.84rem;
+  }
+
+  /* Experience Section */
+  .exp-title-box h3 {
+    font-size: 1.05rem;
+  }
+
+  .exp-company {
+    font-size: 0.88rem;
+  }
+
+  .exp-period {
+    font-size: 0.75rem;
+  }
+
+  .exp-desc {
+    font-size: 0.85rem;
+  }
+
+  .exp-learning-label {
+    font-size: 0.72rem;
+  }
+
+  .pill-tag {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  /* Skills Section */
+  .skill-category-card {
+    padding: 18px 14px;
+  }
+
+  .skill-category-header {
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+  }
+
+  .skill-category-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .skill-category-header h3 {
+    font-size: 1.05rem;
+  }
+
+  .skill-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .skill-item-card {
+    padding: 14px 8px;
+    gap: 8px;
+  }
+
+  .skill-item-card i {
+    font-size: 1.45rem;
+  }
+
+  .skill-item-card span {
+    font-size: 0.75rem;
+  }
+
+  /* Featured Project */
+  .project-featured-card {
+    padding: 18px 14px;
+  }
+
+  .project-type-tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+
+  .project-year {
+    font-size: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .project-features-list {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .feature-item {
+    font-size: 0.82rem;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .project-tech-stack {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .more-projects-box {
+    padding: 18px 14px;
+    gap: 14px;
+  }
+
+  .more-projects-info {
+    gap: 12px;
+  }
+
+  .more-projects-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+  }
+
+  .more-projects-info h4 {
+    font-size: 0.98rem;
+  }
+
+  .more-projects-info p {
+    font-size: 0.82rem;
+  }
+
+  /* Journey Pipeline */
+  .journey-pipeline {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .journey-node {
+    width: 42px;
+    height: 42px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .journey-step-info {
+    padding: 10px 8px;
+  }
+
+  .step-num {
+    font-size: 0.7rem;
+  }
+
+  .step-name {
+    font-size: 0.78rem;
+  }
+
+  .journey-motto-box {
+    padding: 14px 12px;
+    margin-top: 24px;
+  }
+
+  .journey-motto-box p {
+    font-size: 0.88rem;
+  }
+
+  /* Medium Section */
+  .medium-card {
+    padding: 18px 14px;
+    gap: 16px;
+  }
+
+  .medium-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .medium-content p {
+    font-size: 0.86rem;
+  }
+
+  /* Contact Details & Form */
+  .contact-item-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .contact-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+  }
+
+  .contact-detail-box h4 {
+    font-size: 0.72rem;
+  }
+
+  .contact-detail-box a, .contact-detail-box span {
+    font-size: 0.86rem;
+    word-break: break-word;
+  }
+
+  .copy-btn {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .contact-form-card {
+    padding: 18px 14px;
+  }
+
+  .form-label {
+    font-size: 0.78rem;
+  }
+
+  .form-input, .form-textarea {
+    padding: 11px 13px;
+    font-size: 0.88rem;
+  }
+
+  /* Modal */
+  .modal-card {
+    padding: 20px 14px;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .modal-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal-card h4 {
+    font-size: 0.92rem;
+  }
+
+  .modal-card p, .modal-card li {
+    font-size: 0.84rem;
+  }
+
+  .modal-live-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .modal-live-banner .btn {
+    width: 100%;
+  }
+
+  .modal-live-title {
+    font-size: 0.92rem;
   }
 }
