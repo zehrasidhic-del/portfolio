@@ -1138,13 +1138,19 @@ img, svg {
   box-shadow: var(--shadow-sm);
 }
 
-.skill-item-card i {
+.skill-item-card i,
+.skill-item-card svg {
   font-size: 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
   color: var(--bloodstone);
+  fill: var(--bloodstone);
+  display: inline-block;
   transition: transform var(--transition-fast);
 }
 
-.skill-item-card:hover i {
+.skill-item-card:hover i,
+.skill-item-card:hover svg {
   transform: scale(1.15);
 }
 
@@ -2441,8 +2447,11 @@ img, svg {
     gap: 8px;
   }
 
-  .skill-item-card i {
+  .skill-item-card i,
+  .skill-item-card svg {
     font-size: 1.45rem;
+    width: 1.45rem;
+    height: 1.45rem;
   }
 
   .skill-item-card span {
